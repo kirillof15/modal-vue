@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import ElButton from "./ElButton.vue"
+import ElButton from "@components/ElButton.vue"
 import { ref, withDefaults, computed } from "vue"
 
 interface Props {

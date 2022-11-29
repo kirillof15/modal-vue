@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import ElButton from "./ElButton.vue"
+import ElButton from "@components/ElButton.vue"
 import VueMultiselect from "vue-multiselect/src/Multiselect.vue"
 import { ref, withDefaults, computed } from "vue"
 
