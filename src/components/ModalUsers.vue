@@ -1,6 +1,6 @@
 <template>
   <transition name="modal" mode="out-in" appear>
-    <div @click.self="onClickModal" class="modal" v-if="isShow">
+    <div v-if="isShowModal" class="modal" @click.self="onClickModal">
       <div class="modal__container" :style="{ width: getWidth }">
         <div class="modal__header">
           <button class="modal__close-btn" @click="close">x</button>
@@ -52,18 +52,18 @@ const props = withDefaults(defineProps<Props>(), {
   width: 500,
 })
 
-const isShow = ref(false)
+const isShowModal = ref(false)
 const users = ref([])
 const getWidth = computed(() => `${props.width}px`)
 const isDisabledBtnOk = computed(() => users.value.length === 0)
 let promise: Function
 
 const show = async () => {
-  isShow.value = true
+  isShowModal.value = true
 
   const value = await new Promise((resolve) => (promise = resolve))
 
-  isShow.value = false
+  isShowModal.value = false
   unsetUsers()
 
   return value
@@ -72,7 +72,7 @@ const show = async () => {
 const onClickBtnOk = () => promise(users.value)
 
 const close = () => {
-  isShow.value = false
+  isShowModal.value = false
   unsetUsers()
 }
 
