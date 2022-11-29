@@ -1,0 +1,42 @@
+.modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+
+  &__container {
+    margin: 1.75rem auto;
+    background-color: #ecf1f4;
+    padding: 2rem;
+    border-radius: 8px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 20px;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__close-btn {
+    font-size: 1.2rem;
+    padding: 4px 10px;
+    background-color: rgba(32, 31, 31, 0.095);
+  }
+}
+
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+}
