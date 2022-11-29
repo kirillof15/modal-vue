@@ -1,7 +1,7 @@
 <template>
   <Teleport to="#modal">
     <transition name="modal" mode="out-in" appear>
-      <div class="modal" v-if="isShow">
+      <div @click.self="onClickModal" class="modal" v-if="isShow">
         <div class="modal__container" :style="{ width: getWidth }">
           <div class="modal__header">
             <button class="modal__close-btn" @click="close">x</button>
@@ -47,6 +47,10 @@ const show = async () => {
 
 const close = () => {
   isShow.value = false
+}
+
+const onClickModal = () => {
+  close()
 }
 
 defineExpose({
