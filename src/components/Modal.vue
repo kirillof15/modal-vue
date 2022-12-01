@@ -30,12 +30,14 @@ interface Props {
   labelOk?: string
   labelCancel?: string
   width?: number
+  clickToClose?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   labelOk: "Select",
   labelCancel: "Cancel",
   width: 500,
+  clickToClose: true,
 })
 
 const isShowModal = ref(false)
@@ -50,7 +52,9 @@ const close = () => {
 }
 
 const onClickModal = () => {
-  close()
+  if (props.clickToClose) {
+    close()
+  }
 }
 
 defineExpose({

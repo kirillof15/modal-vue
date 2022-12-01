@@ -52,11 +52,11 @@ const modalUsers = ref<IModal>()
 const users = ref<Array<IUser>>([])
 
 const onClickOpenModal = async () => {
-  const modalValue = await modal.value?.show()
+  const modalValue = await (modal.value as IModal).show()
 }
 
 const onClickOpenModalUsers = async () => {
-  const modalValue = await modalUsers.value?.show()
+  const modalValue = await (modalUsers.value as IModal).show()
 
   users.value = modalValue as Array<IUser>
 }

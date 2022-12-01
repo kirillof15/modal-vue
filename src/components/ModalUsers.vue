@@ -44,12 +44,14 @@ interface Props {
   labelCancel?: string
   width?: number
   options: Array<unknown>
+  clickToClose: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   labelOk: "Select",
   labelCancel: "Cancel",
   width: 500,
+  clickToClose: true,
 })
 
 const isShowModal = ref(false)
@@ -77,7 +79,9 @@ const close = () => {
 }
 
 const onClickModal = () => {
-  close()
+  if (props.clickToClose) {
+    close()
+  }
 }
 
 const unsetUsers = () => (users.value = [])
